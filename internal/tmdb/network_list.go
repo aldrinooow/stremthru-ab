@@ -12,7 +12,7 @@ import (
 // fetchNetworkListItems fetches a single page of TV shows for a given network ID.
 // It uses the DiscoverTV API with the WithNetworks parameter to filter by network.
 // It always returns TV shows (MediaTypeTVShow).
-func fetchNetworkListItems(client *APIClient, networkId string, page int) (*tmdbListData, tmdbListData) {
+func fetchNetworkListItems(client *APIClient, networkId string, page int) (*(*t*tmdbListData, error
     data := tmdbListData{}
     // Fetch TV results for the network
     res, err := tmdbListData.DiscoverTV(&DiscoverTVParams{
