@@ -44,6 +44,7 @@ type DiscoverTVParams struct {
 	Page          int
 	SortBy        string
 	WithCompanies string // can be a comma (AND) or pipe (OR) separated query
+	    WithNetworks string // can be a comma (AND) or pipe (OR) separated query
 }
 
 func (c APIClient) DiscoverTV(params *DiscoverTVParams) (APIResponse[FetchDiscoverTVData], error) {
@@ -57,6 +58,9 @@ func (c APIClient) DiscoverTV(params *DiscoverTVParams) (APIResponse[FetchDiscov
 	if params.IncludeAdult {
 		query.Set("include_adult", "true")
 	}
+	        if params.WithNetworks != "" {
+            query.Set("with_networks", params.WithNetworks)
+        }
 	if params.WithCompanies != "" {
 		query.Set("with_companies", params.WithCompanies)
 	}
